@@ -12,10 +12,10 @@ from PantallaPrincipal import *
 from VistaLateral import *
 from VistaArriba import *
 
-CargaParticula = -1.6E-19
+CargaParticula = 1.6E-19
 MasaParticula = 9.11E-31
-distanciaP1 = 0.06
-distanciaP2 = 0.06
+distanciaP1 = 0.12
+distanciaP2 = 0.12
 deltaX = 0.02
 
 
@@ -94,13 +94,13 @@ def Menu():
                 voltajeP1 = int(voltajeP1)
                 voltajeP2 = int(voltajeP2)
 
-                VoltajeAceleracionElectron = input("Ingrese el voltaje de aceleracion")
+                VoltajeAceleracionElectron = input(" >> Ingrese el voltaje de aceleracion: ")
                 VoltajeAceleracionElectron = int(VoltajeAceleracionElectron)
                 
                 # Verificar que el voltaje esté definido dentro del intervalo
                 if (voltajeP1 >= -1000 and voltajeP1 <= 1000):
                     if (voltajeP2 >= -1000 and voltajeP2 <= 1000):
-                        if ( VoltajeAceleracion >= -1000 and VoltajeAceleracion <= 1000):
+                        if ( VoltajeAceleracionElectron >= -1000 and VoltajeAceleracionElectron <= 1000):
                             valido = True
 
             OperacionesFisicas (CargaParticula, voltajeP1, MasaParticula, distanciaP1, VoltajeAceleracionElectron, distanciaP2, deltaX)
