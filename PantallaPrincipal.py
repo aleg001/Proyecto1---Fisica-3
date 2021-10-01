@@ -19,14 +19,14 @@ la simulacion.
 def OperacionesFisicas(CargaParticula, voltajeP1, MasaParticula, distanciaP1, VoltajeAceleracionElectron, distanciaP2, deltaX):
 
     # Operaciones matematicas de electron para placa 1
-    VelocidadX = (((2*CargaParticula*VoltajeAceleracionElectron)/MasaParticula)**(1/2))
+    VelocidadX = (((2*CargaParticula*1000)/MasaParticula)**(1/2))
     deltaT = deltaX/VelocidadX
     aceleracionY = (CargaParticula*voltajeP1)/(MasaParticula*distanciaP1)
     deltaY = (aceleracionY/2)*(deltaT**2)
     CalculoAngulo = math.degrees(math.atan(deltaY/0.02))
 
     # Operaciones matematicas de electron para placa 2
-    VelocidadX2 = (((2*CargaParticula*VoltajeAceleracionElectron)/MasaParticula)**(1/2))
+    VelocidadX2 = (((2*CargaParticula*1000)/MasaParticula)**(1/2))
     deltaT2 = deltaX/VelocidadX2
     aceleracionY2 = (CargaParticula*voltajeP1)/(MasaParticula*distanciaP2)
     deltaY2 = (aceleracionY2/2)*(deltaT2**2)
@@ -43,7 +43,7 @@ def OperacionesFisicas(CargaParticula, voltajeP1, MasaParticula, distanciaP1, Vo
     y = LadoOpuesto2
 
     plt.plot([0,0],[x,y], "ro")
-    plt.title("MOVIMIENTO DE UNA PARTICULA CARGADADA\nEN PRESENCIA DE UN POTENCIAL")
+    plt.title("Comportamiento de un Tubo\nde Rayos Catodicos:")
     plt.ylabel("Desplazamiento en y")
     plt.xlabel("Desplazamiento en x")
     plt.show()

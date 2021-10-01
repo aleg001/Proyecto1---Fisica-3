@@ -2,15 +2,30 @@
 # Fisica 3 - Proyecto 1
 # Integrantes: Alejandro Gómez 20347 y Paola de León 20361
 # Fecha de creacion: 28/09/2021
-# Ultima modificacion 30/09/2021
+# Ultima modificacion 1/10/2021
 
-#llamado a librerias
+# Llamado a librerias
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from time import sleep
+import time as t
+import sys
+
+# Llamado a los modulos desarrollados
 from PantallaPrincipal import *
 from VistaLateral import *
 from VistaArriba import *
+from InterfazGrafica import *
+
+
+# Variables Fisicas fijadas
+
+""" 
+Tamano Pantalla
+Area Placas Deflexion
+Distancia Entre Placas
+Distancia desde placas verticales a horizontales """
 
 CargaParticula = 1.6E-19
 MasaParticula = 9.11E-31
@@ -32,17 +47,13 @@ def VerificacionNum(num):
         print("Solamente puedes ingresar numeros")
 
 
-#Mensaje de bienvenida
-print("Bienvenido a la Simulación del COMPORTAMIENTO DE UN TUBO DE RAYOS CATÓDICOS: \n")
+def ImpresionTitulo():
+    texto = ("\nBienvenido a la Simulación del Comportamiento de un Tubo de Rayos Catodicos:\n ")
+    for i in texto:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        t.sleep(0.04)
 
-
-# Variables Fisicas fijadas
-
-""" 
-Tamano Pantalla
-Area Placas Deflexion
-Distancia Entre Placas
-Distancia desde placas verticales a horizontales """
 
 
 # Variables fisicas controladas por usuario
@@ -57,6 +68,9 @@ Control de señal sinusoidal (Todavía no)
 Tiempo de latencia del punto en la pantalla
 
 """
+
+#Mensaje de bienvenida
+ImpresionTitulo()
 
 """
 Funcion realizada para
@@ -81,7 +95,7 @@ def Menu():
             print("Solamente puedes ingresar numeros")
         
         if (opcion == 1):
-            print("Iniciando simulacion...")
+            print("\nIniciando simulacion...")
             
             # Solicitar valor de voltaje de placas
             valido = False
@@ -102,7 +116,7 @@ def Menu():
                     if (voltajeP2 >= -1000 and voltajeP2 <= 1000):
                         if ( VoltajeAceleracionElectron >= -1000 and VoltajeAceleracionElectron <= 1000):
                             valido = True
-
+            print("\n")
             OperacionesFisicas (CargaParticula, voltajeP1, MasaParticula, distanciaP1, VoltajeAceleracionElectron, distanciaP2, deltaX)
             
 
