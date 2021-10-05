@@ -16,7 +16,7 @@ import sys
 from PantallaPrincipal import *
 from VistaLateral import *
 from VistaArriba import *
-from InterfazGrafica import *
+#from InterfazGrafica import *
 
 
 # Variables Fisicas fijadas

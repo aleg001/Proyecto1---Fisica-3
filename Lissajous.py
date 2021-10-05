@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 RangoPi = linspace(0.0,2*pi,300)
 
-def VistaL(Lado1, DeltaX, XPosition, YPosition):
+def CurvasLissajous(Lado1, DeltaX, XPosition, YPosition):
     
     if XPosition == 0:
         PosicionX = sin(Lado1*RangoPi+DeltaX)
@@ -23,5 +23,5 @@ def VistaL(Lado1, DeltaX, XPosition, YPosition):
     else:
         PosicionY = YPosition*sin(Lado1*RangoPi*DeltaX)
     
-    plt.title("Vista lateral")
+    plt.title("Pantalla")
     plot(XPosition, YPosition)
