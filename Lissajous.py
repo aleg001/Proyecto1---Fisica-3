@@ -63,7 +63,7 @@ def CurvasLissajous(Alfa, Beta, Delta):
 
     plt.clf()
     
-    plt.title("Pantalla")
+    plt.title("Curvas Lissajous")
 
     #Posicion del grafico
     #plt.subplot(1,1,2)
@@ -74,8 +74,38 @@ def CurvasLissajous(Alfa, Beta, Delta):
 """
 A continuacion se definen numeros de prueba para asegurarse que todas las curvas de Lissajous funcionen
 USAR DE REFERENCIA LA TABLA INCLUIDA EN LA GUIA
+
+Descomentar la que se quiera probar
 """
+
+# Curvas 1:1 :
+
+CurvasLissajous(1,1,0)
+CurvasLissajous(1,1,0.25)
+#CurvasLissajous(1,1,0.5)
+#CurvasLissajous(1,1,0.75)
+#CurvasLissajous(1,1,1)
+
+#Curvas 1:2 :
+
+#CurvasLissajous(1,2,0.5)
+CurvasLissajous(1,2,0.25)
+#CurvasLissajous(1,2,0.5)
+#CurvasLissajous(1,2,0.75)
+#CurvasLissajous(1,2,1)
+
+#Curvas 1:3 :
+
+#CurvasLissajous(1,3,0.5)
+CurvasLissajous(1,3,0.25)
 CurvasLissajous(1,3,0.5)
-#CurvasLissajous(2,1,0.5)
-#CurvasLissajous(5,6,0.5)
-#CurvasLissajous(3,5,0.5)
+CurvasLissajous(1,3,0.75)
+#CurvasLissajous(1,3,1)
+
+#Curvas 2:3 :
+
+CurvasLissajous(2,3,0.5)
+#CurvasLissajous(2,3,0.25)
+#CurvasLissajous(2,3,0.5)
+CurvasLissajous(2,3,0.75)
+#CurvasLissajous(2,3,1)
