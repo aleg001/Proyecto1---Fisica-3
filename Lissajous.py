@@ -2,26 +2,80 @@
 # Fisica 3 - Proyecto 1
 # Integrantes: Alejandro Gómez 20347 y Paola de León 20361
 # Fecha de creacion: 28/09/2021
-# Ultima modificacion 30/09/2021
-# Modulo: Pantalla lateral
+# Ultima modificacion 5/10/2021
+# Modulo: Pantalla - Curvas Lissajous
 
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from math import sin
+from matplotlib.pyplot import plot
+from numpy import linspace
+from matplotlib.animation import FuncAnimation
 
-RangoPi = linspace(0.0,2*pi,300)
+RangoPi = linspace(0.0,2*3.141592653589793,300)
 
-def CurvasLissajous(Lado1, DeltaX, XPosition, YPosition):
+# Definicion de limites de los ejes
+XLimiteIzq = -1.5
+XLimiteDer = 1.5
+YLimiteAbajo = -1.5
+YLimiteArriba = 1.5
+
+"""
+
+Para el desarrollo de la vista de curvas lissajous, se modificó
+el código realizado para una práctica de laboratorio previa.
+Para animar la gráfica, se basó en el tutorial de:
+https://www.youtube.com/watch?v=aNuOq3vMw50&ab_channel=cctmexico
+
+"""
+
+def CurvasLissajous(Alfa, Beta, Delta):
     
-    if XPosition == 0:
-        PosicionX = sin(Lado1*RangoPi+DeltaX)
-    else:
-        PosicionX = XPosition*sin(Lado1*RangoPi*DeltaX)
+    CambioDelta = Delta*3.141592653589793
+    fig, ax = plt.subplots()
 
-    if YPosition == 0:
-        PosicionY = sin(Lado1*RangoPi+DeltaX)
-    else:
-        PosicionY = YPosition*sin(Lado1*RangoPi*DeltaX)
+    listaPosicionX, listaPosicionY = [], []
+    Grafico, = plt.plot([], [], 'ro')
+
+    """Se define una función para inicializar la gráfica"""
+    def GraficoIniciado():
+        ax.set_xlim(XLimiteIzq, XLimiteDer)
+        ax.set_ylim(YLimiteAbajo, YLimiteArriba)
+        return Grafico,
+
+    def ActualizacionDelGrafico(frame):
+
+        # Se agregan los valores correspondientes al eje X
+        listaPosicionX.append(np.sin((Alfa*frame) + Delta))
+
+        # Se agregan los valores correspondientes al eje Y
+        listaPosicionY.append(np.sin(Beta*frame))
+
+        Grafico.set_data(listaPosicionX, listaPosicionY)
+
+        #Color del grafico
+        Grafico.set_color("blue")
+
+        return Grafico,
+
+    ani = FuncAnimation(fig, ActualizacionDelGrafico, frames=np.linspace(2, 20, 100), init_func=GraficoIniciado, blit=True)
+
+    plt.clf()
     
     plt.title("Pantalla")
-    plot(XPosition, YPosition)
+
+    #Posicion del grafico
+    #plt.subplot(1,1,2)
+
+    plot(listaPosicionX, listaPosicionY)
+    plt.show()
+
+"""
+A continuacion se definen numeros de prueba para asegurarse que todas las curvas de Lissajous funcionen
+USAR DE REFERENCIA LA TABLA INCLUIDA EN LA GUIA
+"""
+CurvasLissajous(1,3,0.5)
+#CurvasLissajous(2,1,0.5)
+#CurvasLissajous(5,6,0.5)
+#CurvasLissajous(3,5,0.5)
