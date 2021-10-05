@@ -59,7 +59,7 @@ def CurvasLissajous(Alfa, Beta, Delta):
 
         return Grafico,
 
-    ani = FuncAnimation(fig, ActualizacionDelGrafico, frames=np.linspace(2, 20, 100), init_func=GraficoIniciado, blit=True)
+    ani = FuncAnimation(fig, ActualizacionDelGrafico, frames=np.linspace(2, 20, 650), init_func=GraficoIniciado, blit=True, interval = 7)
 
     plt.clf()
     
