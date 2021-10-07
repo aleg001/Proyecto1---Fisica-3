@@ -15,15 +15,21 @@ y amigable con el usuario.
 """
 
 from tkinter import *
+from tkinter import ttk
 
-ws = Tk()
-ws.title('Proyecto - Fisica 3')
-ws.config(bg='white')
+# Variables manejadas por el usuario:
+
+
+
+VentanaPrincipal = Tk()
+VentanaPrincipal.title('Proyecto - Fisica 3')
+VentanaPrincipal.config(bg='white')
+VentanaPrincipal.geometry("1280x720")
 
 f = ('Arial', 11)
 
 left_frame = Frame(
-    ws, 
+    VentanaPrincipal, 
     bd=2, 
     bg='#CCCCCC',   
     relief=SOLID, 
@@ -44,15 +50,24 @@ Label(
     font=f
     ).grid(row=1, column=0, pady=10)
 
-VoltajeHorizontal = Entry(
-    left_frame, 
-    font=f
-    )
-VoltajeVertical = Entry(
+VoltajeVertical  = Entry(
     left_frame, 
     font=f,
-  
+    #textvariable = V_Vertical
     )
+
+IngresoUsuario_V = VoltajeVertical.get()
+
+
+VoltajeHorizontal= Entry(
+    left_frame, 
+    font=f,
+    #textvariable = V_Horizontal
+
+    )
+
+IngresoUsuario_H = VoltajeHorizontal.get()
+
 EnvioInfo = Button(
     left_frame, 
     width=15, 
@@ -69,4 +84,4 @@ EnvioInfo.grid(row=2, column=1, pady=5, padx=15)
 left_frame.pack()
 
 
-ws.mainloop()
+VentanaPrincipal.mainloop()
