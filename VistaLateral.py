@@ -8,10 +8,13 @@
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from math import sin
+from matplotlib.pyplot import plot
+from numpy import linspace
 
 RangoPi = linspace(0.0,2*pi,300)
 
-def VistaL(Lado1, DeltaX, XPosition, YPosition):
+def VistaL(Lado1, DeltaX, XPosition, YPosition, Angulo):
     
     if XPosition == 0:
         PosicionX = sin(Lado1*RangoPi+DeltaX)
@@ -24,4 +27,7 @@ def VistaL(Lado1, DeltaX, XPosition, YPosition):
         PosicionY = YPosition*sin(Lado1*RangoPi*DeltaX)
     
     plt.title("Vista lateral")
+    
+    #Posicion de la grafica
+    plt.subplot(2,2,1)
     plot(XPosition, YPosition)
