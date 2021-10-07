@@ -10,12 +10,19 @@ Modulo para la interfaz gráfica del
 modo dinámico (Curvas Lissajous)
 """
 
+# Librerias importadas
 from tkinter import *
 from tkinter import ttk
 import tkinter
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, 
+NavigationToolbar2Tk)
 
 #Se llama a función lissajous
 from Lissajous import *
+
+
+
 
 Alfa: int
 Beta: int
@@ -83,37 +90,44 @@ def EnviarDatos():
     Beta = int(B.get())
     CurvasLissajous(Alfa, Beta, PiValue)
 
-
-
-
+def CerrarGrafico():
+    plt.close()
 
 
 # Seleccion del valor de Pi
 
 # Pi = 0
 BotonCero = Button(text = "Cero", width=7, bg = "green", fg = "white", command = PiCero, height = 2, font = ("Arial", 15))
-BotonCero.place(x=120+50,y=620)
+BotonCero.place(x=120+70,y=620)
 
 # Pi = 1/4
 BotonPiCuartos = Button(text = "Pi/4", width=7, bg = "green", fg = "white", command = PiCuartos, height = 2, font = ("Arial", 15))
-BotonPiCuartos.place(x=240+50,y=620)
+BotonPiCuartos.place(x=240+70,y=620)
 
 # Pi = 1/2
 BotonPiMedios = Button(text = "Pi/2", width=7, bg = "green", fg = "white", command = PiMedios, height = 2, font = ("Arial", 15))
-BotonPiMedios.place(x=360+50,y=620)
+BotonPiMedios.place(x=360+70,y=620)
 
 # Pi = 3/4
 BotonTresPiCuartos = Button(text = "3Pi/4", width=7, bg = "green", fg = "white", command = PiTresPiCuartos, height = 2, font = ("Arial", 15))
-BotonTresPiCuartos.place(x=480+50,y=620)
+BotonTresPiCuartos.place(x=480+70,y=620)
 
 # Pi = 1
 BotonPi = Button(text = "Pi", width=7, bg = "green", fg = "white", command = PiUno, height = 2, font = ("Arial", 15))
-BotonPi.place(x=600+50,y=620)
+BotonPi.place(x=600+70,y=620)
 
 
 Grafico=Button(text=("Mostrar gráfica dinámica"),command=EnviarDatos, width = 25, bg = "orange", fg = "white", height = 2)
-Grafico.place(x=800+50,y=625)
+Grafico.place(x=800+70,y=625)
 
+
+# Regresar al modo anterior
+Grafico=Button(text=("Regresar Modo Estático"),command=lambda: controller.show_frame("Proyecto - Fisica 3") , width = 25, bg = "red", fg = "black", height = 2)
+Grafico.place(x=940,y=90)
+
+# Cerrar grafico actual
+Grafico=Button(text=("X"),command=CerrarGrafico, width = 3, bg = "red", fg = "white", height = 2)
+Grafico.place(x=90,y=625)
 
 VentanaPrincipal.resizable()
 VentanaPrincipal.mainloop()
