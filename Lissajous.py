@@ -80,32 +80,35 @@ Descomentar la que se quiera probar
 
 # Curvas 1:1 :
 
-CurvasLissajous(1,1,0)
-CurvasLissajous(1,1,0.25)
+#CurvasLissajous(1,1,0)
+#CurvasLissajous(1,1,0.25)
 #CurvasLissajous(1,1,0.5)
 #CurvasLissajous(1,1,0.75)
 #CurvasLissajous(1,1,1)
 
 #Curvas 1:2 :
 
+#CurvasLissajous(1,2,0)
 #CurvasLissajous(1,2,0.5)
-CurvasLissajous(1,2,0.25)
+#CurvasLissajous(1,2,0.25)
 #CurvasLissajous(1,2,0.5)
 #CurvasLissajous(1,2,0.75)
 #CurvasLissajous(1,2,1)
 
 #Curvas 1:3 :
 
+#CurvasLissajous(1,3,0)
 #CurvasLissajous(1,3,0.5)
-CurvasLissajous(1,3,0.25)
-CurvasLissajous(1,3,0.5)
-CurvasLissajous(1,3,0.75)
+#CurvasLissajous(1,3,0.25)
+#CurvasLissajous(1,3,0.5)
+#CurvasLissajous(1,3,0.75)
 #CurvasLissajous(1,3,1)
 
 #Curvas 2:3 :
 
-CurvasLissajous(2,3,0.5)
+#CurvasLissajous(2,3,0)
+#CurvasLissajous(2,3,0.5)
 #CurvasLissajous(2,3,0.25)
 #CurvasLissajous(2,3,0.5)
-CurvasLissajous(2,3,0.75)
+#CurvasLissajous(2,3,0.75)
 #CurvasLissajous(2,3,1)
