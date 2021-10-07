@@ -19,69 +19,61 @@ from tkinter import ttk
 
 # Variables manejadas por el usuario:
 
+# Import de GraficoDinamico
+from InterfazGraficaDinamico import *
+
+def InterfazGrafica():
+
+    VentanaPrincipal = Tk()
+    VentanaPrincipal.title('Proyecto - Fisica 3')
+    VentanaPrincipal.config(bg='white')
+    VentanaPrincipal.geometry("1280x720")
+
+        #Boton para ingresar Alfa
+    VoltajeHorizontal=Label(text=("Ingrese el voltaje horizontal "), bd=2, 
+        bg='#CCCCCC',   
+        relief=SOLID, 
+        padx=10, 
+        pady=10)
+    VoltajeHorizontal.place(x=20,y=50+15)
+
+    #Boton para ingresar Beta
+    VoltajeVertical=Label(text=("Ingrese el voltaje vertical "), bd=2, 
+        bg='#CCCCCC',   
+        relief=SOLID, 
+        padx=10, 
+        pady=10)
+    VoltajeVertical.place(x=20,y=200+15)
+
+    # Ingreso de valores de Alfa y Beta
+    Horizontal=Entry(VentanaPrincipal)
+    Horizontal.place(x=20,y=120)
+    Vertical=Entry(VentanaPrincipal)
+    Vertical.place(x=20,y=280)
+
+ # Funcion para mostrar grafico con datos ingresados
+    def EnviarDatos():
+        VHorizontal = int(Horizontal.get())
+        VVertical = int(Vertical.get())
+        #LLAMAR A GRAFICOS LATERAL, SUPERIOR Y PUNTO FIJO
+
+# Boton para mostrar la gráfica
+    Grafico=Button(text=("Mostrar gráficos"),command=EnviarDatos, width = 25, bg = "orange", fg = "white", height = 2)
+    Grafico.place(x=800+70,y=625)
+
+    """
+    FALTANTE CAMBIAR VENTANAS
+
+    # Boton para cambiar entre ventanas
+    def CambiarVentana():
+        VentanaPrincipal.quit()
+        GraficoDinamicoInterfaz()
 
 
-VentanaPrincipal = Tk()
-VentanaPrincipal.title('Proyecto - Fisica 3')
-VentanaPrincipal.config(bg='white')
-VentanaPrincipal.geometry("1280x720")
+    # Regresar al modo anterior
+    Modo=Button(text=("Ir a Modo Dinámico"),command=CambiarVentana , width = 25, bg = "red", fg = "black", height = 2)
+    Modo.place(x=10,y=90)
 
-f = ('Arial', 11)
-
-left_frame = Frame(
-    VentanaPrincipal, 
-    bd=2, 
-    bg='#CCCCCC',   
-    relief=SOLID, 
-    padx=10, 
-    pady=10
-    )
-
-Label(
-    left_frame, 
-    text="Ingrese el voltaje vertical: ", 
-    bg='#CCCCCC',
-    font=f).grid(row=0, column=0, sticky=W, pady=10)
-
-Label(
-    left_frame, 
-    text="Ingrese el voltaje horizontal: ", 
-    bg='#CCCCCC',
-    font=f
-    ).grid(row=1, column=0, pady=10)
-
-VoltajeVertical  = Entry(
-    left_frame, 
-    font=f,
-    #textvariable = V_Vertical
-    )
-
-IngresoUsuario_V = VoltajeVertical.get()
-
-
-VoltajeHorizontal= Entry(
-    left_frame, 
-    font=f,
-    #textvariable = V_Horizontal
-
-    )
-
-IngresoUsuario_H = VoltajeHorizontal.get()
-
-EnvioInfo = Button(
-    left_frame, 
-    width=15, 
-    text='Enviar Datos', 
-    font=f, 
-    relief=SOLID,
-    cursor='hand2',
-    command=exit
-    )
-
-VoltajeHorizontal.grid(row=0, column=1, pady=5, padx=15)
-VoltajeVertical.grid(row=1, column=1, pady=5, padx=15)
-EnvioInfo.grid(row=2, column=1, pady=5, padx=15)
-left_frame.pack()
-
-
-VentanaPrincipal.mainloop()
+"""
+    VentanaPrincipal.resizable()
+    VentanaPrincipal.mainloop()

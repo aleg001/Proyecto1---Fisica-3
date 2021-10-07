@@ -21,7 +21,12 @@ NavigationToolbar2Tk)
 #Se llama a función lissajous
 from Lissajous import *
 
+# Se llama a interfaz grafica principal
 
+""" FALTANTE:
+CAMBIAR ENTRE VENTANAS
+"""
+#from InterfazGrafica import *
 
 
 Alfa: int
@@ -29,11 +34,11 @@ Beta: int
 PiValue: int
 
 
-VentanaPrincipal = Tk()
-VentanaPrincipal.title('Modo Dinámico - Curvas de Lissajous')
-VentanaPrincipal.config(bg='white')
-VentanaPrincipal.geometry("1280x720")
-Titulo_1=Label(VentanaPrincipal,text=("Modo Dinámico"),background="blue",foreground="White", font =("Arial",30), width = 30)
+VentanaDinamica = Tk()
+VentanaDinamica.title('Modo Dinámico - Curvas de Lissajous')
+VentanaDinamica.config(bg='white')
+VentanaDinamica.geometry("1280x720")
+Titulo_1=Label(VentanaDinamica,text=("Modo Dinámico"),background="blue",foreground="White", font =("Arial",30), width = 30)
 Titulo_1.pack(side=TOP,fill=tkinter.Y)
 
 
@@ -80,18 +85,28 @@ ValorBeta=Label(text=("Ingrese valor de B: "), bd=2,
 ValorBeta.place(x=20,y=200+15)
 
 # Ingreso de valores de Alfa y Beta
-A=Entry(VentanaPrincipal)
+A=Entry(VentanaDinamica)
 A.place(x=20,y=120)
-B=Entry(VentanaPrincipal)
+B=Entry(VentanaDinamica)
 B.place(x=20,y=280)
 
+# Funcion para mostrar grafico con datos ingresados
 def EnviarDatos():
     Alfa = int(A.get())
     Beta = int(B.get())
     CurvasLissajous(Alfa, Beta, PiValue)
 
+# Boton para cerrar grafico
 def CerrarGrafico():
     plt.close()
+
+""" FALTANTE:
+CAMBIAR ENTRE VENTANAS
+"""
+# Boton para cambiar entre ventanas
+def CambiarVentana():
+    VentanaDinamica.quit()
+    #InterfazGrafica()
 
 
 # Seleccion del valor de Pi
@@ -116,18 +131,18 @@ BotonTresPiCuartos.place(x=480+70,y=620)
 BotonPi = Button(text = "Pi", width=7, bg = "green", fg = "white", command = PiUno, height = 2, font = ("Arial", 15))
 BotonPi.place(x=600+70,y=620)
 
-
+# Boton para mostrar la gráfica
 Grafico=Button(text=("Mostrar gráfica dinámica"),command=EnviarDatos, width = 25, bg = "orange", fg = "white", height = 2)
 Grafico.place(x=800+70,y=625)
 
 
 # Regresar al modo anterior
-Grafico=Button(text=("Regresar Modo Estático"),command=lambda: controller.show_frame("Proyecto - Fisica 3") , width = 25, bg = "red", fg = "black", height = 2)
-Grafico.place(x=940,y=90)
+Estatico=Button(text=("Regresar Modo Estático"),command=CambiarVentana , width = 25, bg = "red", fg = "black", height = 2)
+Estatico.place(x=940,y=90)
 
 # Cerrar grafico actual
-Grafico=Button(text=("X"),command=CerrarGrafico, width = 3, bg = "red", fg = "white", height = 2)
-Grafico.place(x=90,y=625)
+Cerrar=Button(text=("X"),command=CerrarGrafico, width = 3, bg = "red", fg = "white", height = 2)
+Cerrar.place(x=90,y=625)
 
-VentanaPrincipal.resizable()
-VentanaPrincipal.mainloop()
+VentanaDinamica.resizable()
+VentanaDinamica.mainloop()
