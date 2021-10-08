@@ -47,10 +47,10 @@ def CurvasLissajous(Alfa, Beta, Delta):
     def ActualizacionDelGrafico(frame):
 
         # Se agregan los valores correspondientes al eje X
-        listaPosicionX.append(np.sin((Alfa*frame) + Delta))
+        listaPosicionX.append(np.cos(Alfa*frame))
 
         # Se agregan los valores correspondientes al eje Y
-        listaPosicionY.append(np.sin(Beta*frame))
+        listaPosicionY.append(np.cos(Beta*frame + Delta))
 
         Grafico.set_data(listaPosicionX, listaPosicionY)
 

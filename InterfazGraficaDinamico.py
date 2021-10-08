@@ -23,9 +23,7 @@ from Lissajous import *
 
 # Se llama a interfaz grafica principal
 
-""" FALTANTE:
-CAMBIAR ENTRE VENTANAS
-"""
+
 #from InterfazGrafica import *
 
 
