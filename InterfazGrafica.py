@@ -14,35 +14,31 @@ y amigable con el usuario.
 
 """
 
+import tkinter
 from tkinter import *
 from tkinter import ttk
+from Calculos import *
 
 # Variables manejadas por el usuario:
 
 # Import de GraficoDinamico
-from InterfazGraficaDinamico import *
+#from InterfazGraficaDinamico import *
 
-def InterfazGrafica():
+def ModoEstatico(CargaParticula, MasaParticula, distanciaP1, distanciaP2, deltaX):
 
     VentanaPrincipal = Tk()
-    VentanaPrincipal.title('Proyecto - Fisica 3')
+    VentanaPrincipal.title('Modo Estático - Pantalla Frontal')
     VentanaPrincipal.config(bg='white')
     VentanaPrincipal.geometry("1280x720")
+    Titulo_1=Label(VentanaPrincipal,text=("Modo Estático"),background="blue",foreground="White", font =("Arial",30), width = 30)
+    Titulo_1.pack(side=TOP,fill=tkinter.Y)
 
-        #Boton para ingresar Alfa
-    VoltajeHorizontal=Label(text=("Ingrese el voltaje horizontal "), bd=2, 
-        bg='#CCCCCC',   
-        relief=SOLID, 
-        padx=10, 
-        pady=10)
+    #Boton para ingresar Alfa
+    VoltajeHorizontal=Label(text=("Ingrese el voltaje horizontal "), bd=2, bg='#CCCCCC', relief=SOLID, padx=10, pady=10)
     VoltajeHorizontal.place(x=20,y=50+15)
 
     #Boton para ingresar Beta
-    VoltajeVertical=Label(text=("Ingrese el voltaje vertical "), bd=2, 
-        bg='#CCCCCC',   
-        relief=SOLID, 
-        padx=10, 
-        pady=10)
+    VoltajeVertical=Label(text=("Ingrese el voltaje vertical "), bd=2, bg='#CCCCCC', relief=SOLID, padx=10, pady=10)
     VoltajeVertical.place(x=20,y=200+15)
 
     # Ingreso de valores de Alfa y Beta
@@ -51,29 +47,24 @@ def InterfazGrafica():
     Vertical=Entry(VentanaPrincipal)
     Vertical.place(x=20,y=280)
 
- # Funcion para mostrar grafico con datos ingresados
+    # Boton para cambiar entre ventanas
+    def CambiarVentana():
+        VentanaPrincipal.destroy()
+
+    # Funcion para mostrar grafico con datos ingresados
     def EnviarDatos():
         VHorizontal = int(Horizontal.get())
         VVertical = int(Vertical.get())
         #LLAMAR A GRAFICOS LATERAL, SUPERIOR Y PUNTO FIJO
+        OperacionesFisicas (CargaParticula, MasaParticula, distanciaP1, distanciaP2, deltaX, VHorizontal, VVertical)
 
-# Boton para mostrar la gráfica
+    # Boton para mostrar la gráfica
     Grafico=Button(text=("Mostrar gráficos"),command=EnviarDatos, width = 25, bg = "orange", fg = "white", height = 2)
     Grafico.place(x=800+70,y=625)
 
-    """
-    FALTANTE CAMBIAR VENTANAS
-
-    # Boton para cambiar entre ventanas
-    def CambiarVentana():
-        VentanaPrincipal.quit()
-        GraficoDinamicoInterfaz()
-
-
     # Regresar al modo anterior
-    Modo=Button(text=("Ir a Modo Dinámico"),command=CambiarVentana , width = 25, bg = "red", fg = "black", height = 2)
-    Modo.place(x=10,y=90)
+    Estatico=Button(text=("Regresar a menu"),command=CambiarVentana , width = 25, bg = "red", fg = "black", height = 2)
+    Estatico.place(x=940,y=90)
 
-"""
     VentanaPrincipal.resizable()
     VentanaPrincipal.mainloop()

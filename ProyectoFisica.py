@@ -13,11 +13,9 @@ import time as t
 import sys
 
 # Llamado a los modulos desarrollados
-from PantallaPrincipal import *
-from VistaLateral import *
-from VistaArriba import *
-#from InterfazGrafica import *
-
+from Calculos import *
+from InterfazGrafica import *
+from InterfazGraficaDinamico import *
 
 # Variables Fisicas fijadas
 
@@ -54,7 +52,7 @@ def ImpresionTitulo():
         sys.stdout.flush()
         t.sleep(0.04)
 
-
+1
 
 # Variables fisicas controladas por usuario
 
@@ -96,28 +94,29 @@ def Menu():
         
         if (opcion == 1):
             print("\nIniciando simulacion...")
+            ModoDinamico()
+            ModoEstatico(CargaParticula, MasaParticula, distanciaP1, distanciaP2, deltaX)
             
-            # Solicitar valor de voltaje de placas
-            valido = False
-            while (valido == False):
+            # # Solicitar valor de voltaje de placas
+            # valido = False
+            # while (valido == False):
            
                 
-                voltajeP1 = input ( " >> Ingrese el voltaje vertical: " )
-                voltajeP2 = input ( " >> Ingrese el voltaje horizontal: " )
+            #     voltajeP1 = input ( " >> Ingrese el voltaje vertical: " )
+            #     voltajeP2 = input ( " >> Ingrese el voltaje horizontal: " )
 
-                voltajeP1 = int(voltajeP1)
-                voltajeP2 = int(voltajeP2)
+            #     voltajeP1 = int(voltajeP1)
+            #     voltajeP2 = int(voltajeP2)
 
-                VoltajeAceleracionElectron = input(" >> Ingrese el voltaje de aceleracion: ")
-                VoltajeAceleracionElectron = int(VoltajeAceleracionElectron)
+            #     VoltajeAceleracionElectron = input(" >> Ingrese el voltaje de aceleracion: ")
+            #     VoltajeAceleracionElectron = int(VoltajeAceleracionElectron)
                 
-                # Verificar que el voltaje esté definido dentro del intervalo
-                if (voltajeP1 >= -1000 and voltajeP1 <= 1000):
-                    if (voltajeP2 >= -1000 and voltajeP2 <= 1000):
-                        if ( VoltajeAceleracionElectron >= -1000 and VoltajeAceleracionElectron <= 1000):
-                            valido = True
-            print("\n")
-            OperacionesFisicas (CargaParticula, voltajeP1, MasaParticula, distanciaP1, VoltajeAceleracionElectron, distanciaP2, deltaX)
+            #     # Verificar que el voltaje esté definido dentro del intervalo
+            #     if (voltajeP1 >= -1000 and voltajeP1 <= 1000):
+            #         if (voltajeP2 >= -1000 and voltajeP2 <= 1000):
+            #             if ( VoltajeAceleracionElectron >= -1000 and VoltajeAceleracionElectron <= 1000):
+            #                 valido = True
+            # OperacionesFisicas (CargaParticula, voltajeP1, MasaParticula, distanciaP1, VoltajeAceleracionElectron, distanciaP2, deltaX)
             
 
         #Opcion de salida
